@@ -52,20 +52,20 @@ app.get('/weather', (req, res) => {
       error: 'You must provide an address'
     })
   } else {
-    geocode(req.query.address, (error, data) => {
+    geocode(req.query.address, (error, {lat, lon, loc}= {}) => {
       if (error) {
         return res.send(error)
       } else {
-        const {lat, lon} = data
-        forecast(lat, lon, (error, fd) => {
+        
+        forecast(lat, lon, (error, {temp, des} = {}) => {
           if (error) {
             return res.send(error)
           } else {
-            const {temp, des} = fd;
+            
             return res.send({
               foreCast: des,
               temperature: temp,
-              location: req.query.address
+              address: loc
             })
           }
         })
