@@ -3,6 +3,7 @@ const express = require('express');
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const hbs = require('hbs');
+const { json } = require('express');
 const port = 3000;
 const app = express();
 
@@ -46,6 +47,7 @@ app.get('/help', (req, res) => {
   })
 })
 
+//this gets triggerd for the query localhost:3000/weather?address=[location] | location = udupi, delhi, etc..
 app.get('/weather', (req, res) => {
   if (!req.query.address) {
     return res.send({
@@ -54,12 +56,12 @@ app.get('/weather', (req, res) => {
   } else {
     geocode(req.query.address, (error, {lat, lon, loc}= {}) => {
       if (error) {
-        return res.send(error)
+        return res.send({error, undefined})
       } else {
         
         forecast(lat, lon, (error, {temp, des} = {}) => {
           if (error) {
-            return res.send(error)
+            return res.send({error, undefined})
           } else {
             return res.send({
               foreCast: des,
