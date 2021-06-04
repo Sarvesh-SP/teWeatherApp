@@ -61,7 +61,6 @@ app.get('/weather', (req, res) => {
           if (error) {
             return res.send(error)
           } else {
-            
             return res.send({
               foreCast: des,
               temperature: temp,
