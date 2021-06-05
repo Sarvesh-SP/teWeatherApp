@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 body {
   color: #333333;
   max-width: 615px;
   margin: 0 auto;
   padding: 0 16px;
-
+  font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -38,4 +39,17 @@ header a {
 .about {
   width: 250px;
   border-radius: 50%;
+}
+
+input {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #888888;
+  background: #232323;
+  color: white;
+  padding: 8px;
 }
