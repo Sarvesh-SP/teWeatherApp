@@ -17,7 +17,7 @@ let find = (loc) => {
   m1.textContent = 'Loading....'
   m2.textContent = ''
   //fetching the data from the localhost
-  fetch(`http://localhost:3000/weather?address=${loc}`)
+  fetch(`/weather?address=${loc}`)
   .then((response) => {
     response.json().then(function(data) {
       if (data.error) {
