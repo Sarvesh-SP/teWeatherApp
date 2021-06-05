@@ -16,6 +16,7 @@ weather.addEventListener('submit', (event) => {
 let find = (loc) => {
   m1.textContent = 'Loading....'
   m2.textContent = ''
+  m3.textContent = ''
   //fetching the data from the localhost
   fetch(`/weather?address=${loc}`)
   .then((response) => {
