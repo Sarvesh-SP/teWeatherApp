@@ -60,14 +60,15 @@ app.get('/weather', (req, res) => {
         return res.send({error, undefined})
       } else {
         
-        forecast(lat, lon, (error, {temp, des} = {}) => {
+        forecast(lat, lon, (error, {temp, des, feels} = {}) => {
           if (error) {
             return res.send({error, undefined})
           } else {
             return res.send({
               foreCast: des,
               temperature: temp,
-              address: loc
+              address: loc,
+              feels
             })
           }
         })

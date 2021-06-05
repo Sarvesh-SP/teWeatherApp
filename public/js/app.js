@@ -25,7 +25,7 @@ let find = (loc) => {
       } else {
         m1.textContent = `Location: ${data.address}`
         m2.textContent = `Forecast: ${data.foreCast}`
-        m3.textContent = `Temperature: ${data.temperature}`
+        m3.textContent = `Temperature is ${data.temperature} celsius but feels like ${data.feels} celsius`
       }
     })
   })
