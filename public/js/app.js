@@ -1,7 +1,6 @@
 const m1 = document.querySelector('#m1')
 const m2 = document.querySelector('#m2')
-
-
+const m3 = document.querySelector('#m3')
 
 const weather = document.querySelector('form')
 const search = document.querySelector('input')
@@ -24,8 +23,9 @@ let find = (loc) => {
       if (data.error) {
         m1.textContent = data.error
       } else {
-        m1.textContent = data.address
-        m2.textContent = data.foreCast
+        m1.textContent = `Location: ${data.address}`
+        m2.textContent = `Forecast: ${data.foreCast}`
+        m3.textContent = `Temperature: ${data.temperature}`
       }
     })
   })
